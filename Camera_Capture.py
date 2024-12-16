@@ -61,7 +61,7 @@ def main():
                 
 
                 # Optional: Add a delay to control capture frequency
-                time.sleep(0.5)
+                time.sleep(0)
 
     except KeyboardInterrupt:
         print("Stopping capture loop...")
