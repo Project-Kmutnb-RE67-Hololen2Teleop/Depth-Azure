@@ -71,7 +71,7 @@ def main():
     k4a = PyK4A(
         Config(
             color_resolution=pyk4a.ColorResolution.RES_720P,
-            camera_fps=pyk4a.FPS.FPS_15,  # Set to 15 FPS
+            camera_fps=pyk4a.FPS.FPS_5,  # Set to 15 FPS
             depth_mode=pyk4a.DepthMode.WFOV_2X2BINNED,
             synchronized_images_only=True,
         )
@@ -79,7 +79,7 @@ def main():
     k4a.start()
 
     # Thread-safe queue to store frames for saving
-    save_queue = queue.Queue(maxsize=15)  # Buffer for 1 second of frames
+    save_queue = queue.Queue(maxsize=5)  # Buffer for 1 second of frames
 
     # Start capture and save threads
     capture_thread = Thread(target=capture_and_process, args=(k4a, save_queue), daemon=True)
